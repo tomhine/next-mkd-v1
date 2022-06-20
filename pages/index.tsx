@@ -1,15 +1,23 @@
 import { Box, Flex, Grid, GridItem, Heading, Textarea } from "@chakra-ui/react";
 import type { NextPage } from "next";
 import Head from "next/head";
-import React, { useState } from "react";
+import { useEffect } from "react";
 import ReactMarkdown from "react-markdown";
+import { useDocumentStore } from "../store/document";
 
 const Home: NextPage = () => {
-  const [mkd, setMkd] = useState("");
+  const mkd = useDocumentStore(state => state.markdown);
+  const setMkd = useDocumentStore(state => state.setMarkdown);
 
   const handleMkdInput = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
     setMkd(e.currentTarget.value);
   };
+
+  useEffect(() => {
+    if (window?.localStorage.getItem("markdown")) {
+      setMkd(window.localStorage.getItem("markdown")!);
+    }
+  }, [setMkd]);
 
   return (
     <Box>

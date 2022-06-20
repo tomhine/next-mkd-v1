@@ -1,12 +1,16 @@
 import { Box, Button, Flex, Heading, IconButton } from "@chakra-ui/react";
 import { DeleteIcon, HamburgerIcon } from "@chakra-ui/icons";
 import { SaveIcon } from "@heroicons/react/outline";
+import { useDocumentStore } from "../store/document";
 
 type LayoutProps = {
   children: React.ReactNode;
 };
 
 const Layout = ({ children }: LayoutProps) => {
+  const clearMkd = useDocumentStore(state => state.clearMarkdown);
+  const saveMkd = useDocumentStore(state => state.saveDocument);
+
   return (
     <Box minH="100vh" bg="gray.100">
       <Flex
@@ -29,10 +33,12 @@ const Layout = ({ children }: LayoutProps) => {
           <IconButton
             aria-label="Delete markdown"
             icon={<DeleteIcon w={5} h={5} />}
+            onClick={clearMkd}
           />
           <Button
             leftIcon={<SaveIcon className="h-5 w-5" />}
             colorScheme="orange"
+            onClick={saveMkd}
           >
             Save
           </Button>
