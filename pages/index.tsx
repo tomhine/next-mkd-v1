@@ -1,17 +1,13 @@
-import { Box, Flex, Grid, GridItem, Heading, Textarea } from "@chakra-ui/react";
+import { Box, Grid } from "@chakra-ui/react";
 import type { NextPage } from "next";
 import Head from "next/head";
 import { useEffect } from "react";
-import ReactMarkdown from "react-markdown";
+import Editor from "../components/Editor";
+import Previewer from "../components/Previewer";
 import { useDocumentStore } from "../store/document";
 
 const Home: NextPage = () => {
-  const mkd = useDocumentStore(state => state.markdown);
   const setMkd = useDocumentStore(state => state.setMarkdown);
-
-  const handleMkdInput = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
-    setMkd(e.currentTarget.value);
-  };
 
   useEffect(() => {
     if (window?.localStorage.getItem("markdown")) {
@@ -34,32 +30,8 @@ const Home: NextPage = () => {
         gap={0.5}
         pt={0.5}
       >
-        <GridItem bg="gray.100">
-          <Flex as="header" align="center" px={8} bg="gray.200" h={10}>
-            <Heading as="h2" size="xs" fontWeight="medium">
-              MARKDOWN
-            </Heading>
-          </Flex>
-          <Textarea
-            value={mkd}
-            onChange={handleMkdInput}
-            resize="none"
-            border="none"
-            variant="unstyled"
-            p={6}
-            minH="calc(100vh - 130px)"
-          />
-        </GridItem>
-        <GridItem bg="gray.100">
-          <Flex as="header" align="center" px={8} bg="gray.200" h={10}>
-            <Heading as="h2" size="xs" fontWeight="medium">
-              PREVIEW
-            </Heading>
-          </Flex>
-          <Box className="prose" p={6}>
-            <ReactMarkdown>{mkd}</ReactMarkdown>
-          </Box>
-        </GridItem>
+        <Editor />
+        <Previewer />
       </Grid>
     </Box>
   );
