@@ -1,15 +1,16 @@
 import { Box, Button, Flex, Heading, IconButton } from "@chakra-ui/react";
-import { DeleteIcon, HamburgerIcon } from "@chakra-ui/icons";
+import { DeleteIcon } from "@chakra-ui/icons";
 import { SaveIcon } from "@heroicons/react/outline";
 import { useDocumentStore } from "../store/document";
+import Menu from "./Menu";
 
 type LayoutProps = {
   children: React.ReactNode;
 };
 
 const Layout = ({ children }: LayoutProps) => {
-  const clearMkd = useDocumentStore(state => state.clearMarkdown);
   const saveMkd = useDocumentStore(state => state.saveDocument);
+  const clearMkd = useDocumentStore(state => state.clearMarkdown);
 
   return (
     <Box minH="100vh" bg="gray.100">
@@ -21,10 +22,7 @@ const Layout = ({ children }: LayoutProps) => {
         px={8}
       >
         <Flex gap="8" alignItems="center">
-          <IconButton
-            aria-label="Side menu"
-            icon={<HamburgerIcon w={6} h={6} />}
-          />
+          <Menu />
           <Heading as="h1" size="md" letterSpacing="0.5rem">
             MARKDOWN
           </Heading>
