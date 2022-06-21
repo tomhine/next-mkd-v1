@@ -18,6 +18,7 @@ const Menu = () => {
   return (
     <>
       <IconButton
+        bg="white"
         ref={buttonRef}
         aria-label="Side menu"
         icon={<HamburgerIcon w={6} h={6} />}

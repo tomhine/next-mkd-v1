@@ -10,8 +10,8 @@ const Editor = () => {
   };
 
   return (
-    <GridItem bg="gray.100">
-      <Flex as="header" align="center" px={8} bg="gray.200" h={10}>
+    <GridItem bg="white">
+      <Flex as="header" align="center" px={8} bg="gray.100" h={10}>
         <Heading as="h2" size="xs" fontWeight="medium">
           MARKDOWN
         </Heading>

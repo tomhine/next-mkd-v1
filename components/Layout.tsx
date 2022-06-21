@@ -17,6 +17,7 @@ const Layout = ({ children }: LayoutProps) => {
       <Flex
         as="header"
         h="20"
+        bg="white"
         alignItems="center"
         justifyContent="space-between"
         px={8}
@@ -30,6 +31,7 @@ const Layout = ({ children }: LayoutProps) => {
         <Flex gap="8" alignItems="center">
           <IconButton
             aria-label="Delete markdown"
+            bg="white"
             icon={<DeleteIcon w={5} h={5} />}
             onClick={clearMkd}
           />
