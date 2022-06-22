@@ -23,7 +23,7 @@ const Home: NextPage = () => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <Grid
-        templateColumns="repeat(2, 1fr)"
+        templateColumns={["1fr", "repeat(2, 1fr)"]}
         minH="calc(100vh - 80px)"
         as="main"
         bg="gray.300"

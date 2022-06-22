@@ -20,15 +20,19 @@ const Layout = ({ children }: LayoutProps) => {
         bg="white"
         alignItems="center"
         justifyContent="space-between"
-        px={8}
+        px={[2, 4, 8]}
       >
-        <Flex gap="8" alignItems="center">
+        <Flex gap={[4, 8]} alignItems="center">
           <Menu />
-          <Heading as="h1" size="md" letterSpacing="0.5rem">
+          <Heading
+            as="h1"
+            size={["sm", null, "md"]}
+            letterSpacing={["0.25rem", "0.5rem"]}
+          >
             MARKDOWN
           </Heading>
         </Flex>
-        <Flex gap="8" alignItems="center">
+        <Flex gap={[4, 8]} alignItems="center">
           <IconButton
             aria-label="Delete markdown"
             bg="white"

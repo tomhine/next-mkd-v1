@@ -1,5 +1,6 @@
 import {
   Drawer,
+  DrawerBody,
   DrawerCloseButton,
   DrawerContent,
   DrawerHeader,
@@ -29,11 +30,13 @@ const Menu = () => {
         placement="left"
         onClose={onClose}
         finalFocusRef={buttonRef}
+        size={["xs", "md"]}
       >
         <DrawerOverlay />
         <DrawerContent>
           <DrawerCloseButton />
           <DrawerHeader>Menu</DrawerHeader>
+          <DrawerBody>Hello there...</DrawerBody>
         </DrawerContent>
       </Drawer>
     </>
