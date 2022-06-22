@@ -1,10 +1,12 @@
 import {
+  Button,
   Drawer,
   DrawerBody,
   DrawerCloseButton,
   DrawerContent,
   DrawerHeader,
   DrawerOverlay,
+  Flex,
   IconButton,
   useDisclosure,
 } from "@chakra-ui/react";
@@ -36,7 +38,22 @@ const Menu = () => {
         <DrawerContent>
           <DrawerCloseButton />
           <DrawerHeader>Menu</DrawerHeader>
-          <DrawerBody>Hello there...</DrawerBody>
+          <DrawerBody>
+            <Flex justify="space-between" px={[4, null, 8]}>
+              <Button as="a" href="/login" colorScheme="orange" size="lg">
+                Log in
+              </Button>
+              <Button
+                as="a"
+                href="/signup"
+                colorScheme="orange"
+                variant="outline"
+                size="lg"
+              >
+                Sign up
+              </Button>
+            </Flex>
+          </DrawerBody>
         </DrawerContent>
       </Drawer>
     </>
