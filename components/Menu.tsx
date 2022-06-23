@@ -32,15 +32,21 @@ const Menu = () => {
         placement="left"
         onClose={onClose}
         finalFocusRef={buttonRef}
-        size={["xs", "md"]}
+        size={["xs", "sm"]}
       >
         <DrawerOverlay />
         <DrawerContent>
           <DrawerCloseButton />
           <DrawerHeader>Menu</DrawerHeader>
           <DrawerBody>
-            <Flex justify="space-between" px={[4, null, 8]}>
-              <Button as="a" href="/login" colorScheme="orange" size="lg">
+            <Flex justify="center" gap={4}>
+              <Button
+                as="a"
+                href="/login"
+                colorScheme="orange"
+                size="lg"
+                w="full"
+              >
                 Log in
               </Button>
               <Button
@@ -49,6 +55,7 @@ const Menu = () => {
                 colorScheme="orange"
                 variant="outline"
                 size="lg"
+                w="full"
               >
                 Sign up
               </Button>
